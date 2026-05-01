@@ -3,12 +3,54 @@
 import { useState, useEffect } from "react";
 
 const projects = [
-  { title: "Shazam Redesign", image: "/shazam.png", tag: "Redesign", brief: "Improved music identification flow by simplifying navigation and prioritising the core action.", link: "https://www.notion.so/Improving-Usability-in-Shazam-Through-Clarity-Driven-Design-34ad054a19d480c4bb2dd0c28c740801" },
-  { title: "Amul Ordering Experience", image: "/amul.png", tag: "UX / Concept", brief: "Designed a zero-to-one ordering system for everyday dairy purchases.", link: "https://www.notion.so/Amul-Ordering-Experience-352d054a19d480e49d39caac53429387" },
-  { title: "Apple Music Redesign", image: "/applemusic.png", tag: "Redesign", brief: "Reworked content hierarchy to improve discoverability and engagement.", link: "https://www.notion.so/Apple-Music-Redesign-Case-Study-1e8d054a19d480e9a8e0d39e7b478136" },
-  { title: "Prime Sports Drink", image: "/prime.png", tag: "Concept", brief: "Concept design exploring bold branding and high-energy product experience.", link: "https://www.notion.so/Prime-Beverages-Website-Design-1e8d054a19d4803d9ee0c7163740096f" },
-  { title: "YouTube Recreation", image: "/youtube.png", tag: "Recreation", brief: "Rebuilt layout structure to understand usability patterns.", link: "https://www.notion.so/Youtube-UI-Recreating-1e9d054a19d48029b7d1fc5cd523be80" },
-  { title: "FLUX Banking", image: "/flux.png", tag: "Concept", brief: "Concept banking app focused on simplicity and intuitive finance actions.", link: "https://www.notion.so/Banking-Site-Design-1ecd054a19d48067b272e96a7e6caedf" },
+  {
+    title: "Shazam Redesign",
+    image: "/shazam.png",
+    tag: "Redesign",
+    brief: "Improved music identification flow by simplifying navigation and prioritising the core action.",
+    highlight: "Faster song recognition + clearer primary action",
+    link: "https://www.notion.so/Improving-Usability-in-Shazam-Through-Clarity-Driven-Design-34ad054a19d480c4bb2dd0c28c740801"
+  },
+  {
+    title: "Amul Ordering Experience",
+    image: "/amul.png",
+    tag: "UX / Concept",
+    brief: "Designed a zero-to-one ordering system for everyday dairy purchases.",
+    highlight: "Simplified ordering flow for instant purchases",
+    link: "https://www.notion.so/Amul-Ordering-Experience-352d054a19d480e49d39caac53429387"
+  },
+  {
+    title: "Apple Music Redesign",
+    image: "/applemusic.png",
+    tag: "Redesign",
+    brief: "Reworked content hierarchy to improve discoverability and engagement.",
+    highlight: "Improved navigation + content discovery",
+    link: "https://www.notion.so/Apple-Music-Redesign-Case-Study-1e8d054a19d480e9a8e0d39e7b478136"
+  },
+  {
+    title: "Prime Sports Drink",
+    image: "/prime.png",
+    tag: "Concept",
+    brief: "Concept design exploring bold branding and high-energy product experience.",
+    highlight: "High-energy branding + bold UI direction",
+    link: "https://www.notion.so/Prime-Beverages-Website-Design-1e8d054a19d4803d9ee0c7163740096f"
+  },
+  {
+    title: "YouTube Recreation",
+    image: "/youtube.png",
+    tag: "Recreation",
+    brief: "Rebuilt layout structure to understand usability patterns.",
+    highlight: "Deep dive into layout + usability patterns",
+    link: "https://www.notion.so/Youtube-UI-Recreating-1e9d054a19d48029b7d1fc5cd523be80"
+  },
+  {
+    title: "FLUX Banking",
+    image: "/flux.png",
+    tag: "Concept",
+    brief: "Concept banking app focused on simplicity and intuitive finance actions.",
+    highlight: "Minimal finance UX with intuitive flows",
+    link: "https://www.notion.so/Banking-Site-Design-1ecd054a19d48067b272e96a7e6caedf"
+  },
 ];
 
 export default function Portfolio() {
@@ -42,20 +84,18 @@ export default function Portfolio() {
       <div className="h-16" />
 
       {/* Hero */}
-      <section className="mb-24 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <h1 className="text-5xl md:text-7xl font-semibold mb-6">Neil J John</h1>
-          <p className="text-gray-400">Designing intuitive systems that simplify complex digital experiences.</p>
-        </div>
-        <div className="h-[350px] bg-white/5 rounded-2xl flex items-center justify-center">
-          <img src="/profile.jpg" alt="profile" className="max-h-full" />
-        </div>
+      <section className="mb-32 text-center">
+        <h1 className="text-6xl md:text-8xl font-semibold tracking-tight mb-6">
+          Neil J John
+        </h1>
+
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          Designing intuitive digital experiences that simplify complexity and elevate user interaction.
+        </p>
       </section>
 
       {/* Featured */}
       <section className="mb-28 relative">
-
-        {/* subtle glow behind featured */}
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/5 blur-3xl rounded-full pointer-events-none" />
 
         <div className="relative">
@@ -70,8 +110,6 @@ export default function Portfolio() {
                 onClick={() => setSelectedProject(p)}
                 className="group cursor-pointer rounded-2xl p-8 bg-gradient-to-br from-white/15 to-white/5 border border-white/20 shadow-[0_20px_80px_rgba(0,0,0,0.7)] hover:scale-[1.03] hover:border-white/50 transition duration-500 flex flex-col items-center text-center relative overflow-hidden"
               >
-
-                {/* hover glow */}
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition duration-500" />
 
                 <div className="w-full flex justify-center mb-8 relative z-10">
@@ -81,8 +119,8 @@ export default function Portfolio() {
                 <div className="w-12 h-[2px] bg-white/50 mb-4 group-hover:w-16 transition-all duration-500" />
 
                 <h3 className="text-2xl font-semibold relative z-10">{p.title}</h3>
-                <p className="text-sm text-gray-400 mt-2 relative z-10">Case Study • {p.tag}</p>
-
+                <p className="text-sm text-gray-400 mt-2">{p.highlight}</p>
+                <span className="text-xs mt-2 text-gray-500">Case Study • {p.tag}</span>
               </div>
             ))}
           </div>
@@ -90,13 +128,19 @@ export default function Portfolio() {
       </section>
 
       {/* ALL PROJECTS */}
-      <section className="mb-20">
-        <h2 className="text-sm text-gray-500 mb-6">All Projects</h2>
+      <section className="mb-24">
+        <h2 className="text-lg font-semibold mb-6">All Projects</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {projects.slice(2).map(p => (
-            <div key={p.title} onClick={() => setSelectedProject(p)} className="cursor-pointer bg-white/5 p-4 rounded-xl">
-              <img src={p.image} alt={p.title} className="mb-4" />
-              <h3>{p.title}</h3>
+            <div
+              key={p.title}
+              onClick={() => setSelectedProject(p)}
+              className="group cursor-pointer bg-white/5 p-5 rounded-xl border border-white/10 hover:border-white/30 hover:scale-[1.02] transition duration-300"
+            >
+              <img src={p.image} alt={p.title} className="mb-4 rounded-md" />
+              <h3 className="font-medium mb-1">{p.title}</h3>
+              <p className="text-xs text-gray-400 mb-2">{p.highlight}</p>
+              <span className="text-[10px] text-gray-500">{p.tag}</span>
             </div>
           ))}
         </div>
@@ -112,8 +156,6 @@ export default function Portfolio() {
             onClick={(e) => e.stopPropagation()}
             className="bg-white/10 border border-white/20 backdrop-blur-xl p-7 rounded-2xl max-w-md w-full relative shadow-[0_20px_80px_rgba(0,0,0,0.7)] text-center"
           >
-
-            {/* Close button */}
             <button
               onClick={() => setSelectedProject(null)}
               className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl transition"
@@ -146,7 +188,6 @@ export default function Portfolio() {
                 Close
               </button>
             </div>
-
           </div>
         </div>
       )}
