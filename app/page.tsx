@@ -141,7 +141,9 @@ export default function Portfolio() {
               onClick={() => setSelectedProject(p)}
               className="group cursor-pointer bg-gradient-to-br from-white/10 to-white/0 p-5 rounded-xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:border-white/30 hover:scale-[1.02] transition duration-300"
             >
-              <img src={p.image} alt={p.title} className="mb-4 rounded-md" />
+              <div className="h-[180px] flex items-center justify-center mb-4">
+              <img src={p.image} alt={p.title} className="max-h-full object-contain" />
+              </div>
               <h3 className="font-medium mb-1">{p.title}</h3>
               <p className="text-xs text-gray-400 mb-2">{p.highlight}</p>
               <span className="text-[10px] text-gray-500">{p.tag}</span>
