@@ -7,48 +7,48 @@ const projects = [
     title: "Shazam Redesign",
     image: "/shazam.png",
     tag: "Redesign",
-    brief: "Improved music identification flow by simplifying navigation and prioritising the core action.",
-    highlight: "Faster song recognition + clearer primary action",
+    brief: "I simplified how users identify songs by reducing clutter and making the main action clearer and faster.",
+    highlight: "Reduced friction in music discovery with a clearer primary action",
     link: "https://www.notion.so/Improving-Usability-in-Shazam-Through-Clarity-Driven-Design-34ad054a19d480c4bb2dd0c28c740801"
   },
   {
     title: "Amul Ordering Experience",
     image: "/amul.png",
     tag: "UX / Concept",
-    brief: "Designed a zero-to-one ordering system for icecream purchases specifically for Amul.",
-    highlight: "Simplified ordering flow for instant purchases",
+    brief: "Designed a simple and fast ordering flow for ice cream purchases, focusing on speed and ease.",
+    highlight: "Made ordering faster and more intuitive for quick purchases",
     link: "https://www.notion.so/Amul-Ordering-Experience-352d054a19d480e49d39caac53429387"
   },
   {
     title: "Apple Music Redesign",
     image: "/applemusic.png",
     tag: "Redesign",
-    brief: "Reworked content hierarchy to improve discoverability and engagement.",
-    highlight: "Improved navigation + content discovery",
+    brief: "Reorganized content and navigation to make music easier to find and explore.",
+    highlight: "Improved content discovery through better structure",
     link: "https://www.notion.so/Apple-Music-Redesign-Case-Study-1e8d054a19d480e9a8e0d39e7b478136"
   },
   {
     title: "Prime Sports Drink",
     image: "/prime.png",
     tag: "Concept",
-    brief: "Concept design exploring bold branding and high-energy product experience.",
-    highlight: "High-energy branding + bold UI direction",
+    brief: "Explored bold branding and energetic UI to match the product’s personality.",
+    highlight: "Created a bold and energetic visual experience",
     link: "https://www.notion.so/Prime-Beverages-Website-Design-1e8d054a19d4803d9ee0c7163740096f"
   },
   {
     title: "YouTube Recreation",
     image: "/youtube.png",
     tag: "Recreation",
-    brief: "Rebuilt layout structure to understand usability patterns.",
-    highlight: "Deep dive into layout + usability patterns",
+    brief: "Rebuilt YouTube’s interface to understand layout systems and usability patterns.",
+    highlight: "Studied layout systems and user behavior patterns",
     link: "https://www.notion.so/Youtube-UI-Recreating-1e9d054a19d48029b7d1fc5cd523be80"
   },
   {
     title: "FLUX Banking",
     image: "/flux.png",
     tag: "Concept",
-    brief: "Concept banking app focused on simplicity and intuitive finance actions.",
-    highlight: "Minimal finance UX with intuitive flows",
+    brief: "Designed a minimal banking experience focused on clarity and ease of use.",
+    highlight: "Simplified finance interactions with clean UX",
     link: "https://www.notion.so/Banking-Site-Design-1ecd054a19d48067b272e96a7e6caedf"
   },
 ];
@@ -90,7 +90,11 @@ export default function Portfolio() {
         </h1>
 
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          Designing intuitive digital experiences that simplify complexity and elevate user interaction.
+          I design simple, easy-to-use digital experiences.
+        </p>
+
+        <p className="text-sm text-gray-500 mt-4 max-w-xl mx-auto">
+          I focus on clarity, usability, and making products feel effortless to use.
         </p>
       </section>
 
@@ -135,7 +139,7 @@ export default function Portfolio() {
             <div
               key={p.title}
               onClick={() => setSelectedProject(p)}
-              className="group cursor-pointer bg-white/5 p-5 rounded-xl border border-white/10 hover:border-white/30 hover:scale-[1.02] transition duration-300"
+              className="group cursor-pointer bg-gradient-to-br from-white/10 to-white/0 p-5 rounded-xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:border-white/30 hover:scale-[1.02] transition duration-300"
             >
               <img src={p.image} alt={p.title} className="mb-4 rounded-md" />
               <h3 className="font-medium mb-1">{p.title}</h3>
@@ -162,6 +166,8 @@ export default function Portfolio() {
             >
               ×
             </button>
+
+            <p className="text-xs text-gray-500 mb-2">Case Study • {selectedProject.tag}</p>
 
             <h2 className="text-2xl font-semibold mb-3 tracking-tight">
               {selectedProject.title}
