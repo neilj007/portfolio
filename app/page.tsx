@@ -15,7 +15,7 @@ const projects = [
     title: "Amul Ordering Experience",
     image: "/amul.png",
     tag: "UX / Concept",
-    brief: "Designed a zero-to-one ordering system for everyday dairy purchases.",
+    brief: "Designed a zero-to-one ordering system for icecream purchases specifically for Amul.",
     highlight: "Simplified ordering flow for instant purchases",
     link: "https://www.notion.so/Amul-Ordering-Experience-352d054a19d480e49d39caac53429387"
   },
