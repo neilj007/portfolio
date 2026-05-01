@@ -73,6 +73,20 @@ export default function Portfolio() {
         style={{ transform: `translate(${mouse.x - 150}px, ${mouse.y - 150}px)` }}
       />
 
+      {/* Gradient Mesh Background */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(255,255,255,0.05),transparent_40%)]" />
+      </div>
+
+      {/* Floating blobs */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute w-[700px] h-[700px] bg-white/5 rounded-full blur-3xl animate-[float1_16s_ease-in-out_infinite]" />
+        <div className="absolute right-0 top-1/3 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl animate-[float2_18s_ease-in-out_infinite]" />
+      </div>
+
+      {/* Grain texture */}
+      <div className="pointer-events-none fixed inset-0 z-10 opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
       {/* Header */}
       <div className="fixed top-0 left-0 w-full z-40 backdrop-blur-md bg-black/40 border-b border-white/10">
         <div className="max-w-6xl mx-auto flex justify-between items-center px-6 md:px-10 py-4">
@@ -85,7 +99,7 @@ export default function Portfolio() {
 
       {/* Hero */}
       <section className="mb-32 text-center">
-        <h1 className="text-6xl md:text-8xl font-semibold tracking-tight mb-6">
+        <h1 className="text-6xl md:text-8xl font-semibold tracking-tight mb-6 bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
           Neil J John
         </h1>
 
@@ -94,59 +108,51 @@ export default function Portfolio() {
         </p>
 
         <p className="text-sm text-gray-500 mt-4 max-w-xl mx-auto">
-          I focus on clarity, usability, and making products feel effortless to use.
+          Focused on clarity, usability, and making products feel effortless.
         </p>
       </section>
 
       {/* Featured */}
       <section className="mb-28 relative">
-        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-white/5 blur-3xl rounded-full pointer-events-none" />
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">Featured Work</h2>
 
-        <div className="relative">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 tracking-tight text-center">
-            Featured Work
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {projects.slice(0,2).map(p => (
-              <div
-                key={p.title}
-                onClick={() => setSelectedProject(p)}
-                className="group cursor-pointer rounded-2xl p-8 bg-gradient-to-br from-white/15 to-white/5 border border-white/20 shadow-[0_20px_80px_rgba(0,0,0,0.7)] hover:scale-[1.03] hover:border-white/50 transition duration-500 flex flex-col items-center text-center relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition duration-500" />
-
-                <div className="w-full flex justify-center mb-8 relative z-10">
-                  <img src={p.image} alt={p.title} className="max-h-[340px] object-contain group-hover:scale-105 transition duration-500" />
-                </div>
-
-                <div className="w-12 h-[2px] bg-white/50 mb-4 group-hover:w-16 transition-all duration-500" />
-
-                <h3 className="text-2xl font-semibold relative z-10">{p.title}</h3>
-                <p className="text-sm text-gray-400 mt-2">{p.highlight}</p>
-                <span className="text-xs mt-2 text-gray-500">Case Study • {p.tag}</span>
+        <div className="grid md:grid-cols-2 gap-12">
+          {projects.slice(0,2).map(p => (
+            <div
+              key={p.title}
+              onClick={() => setSelectedProject(p)}
+              className="group cursor-pointer rounded-2xl p-8 bg-gradient-to-br from-white/20 to-white/5 border border-white/20 shadow-[0_30px_100px_rgba(0,0,0,0.8)] hover:scale-[1.04] hover:border-white/60 transition duration-500 flex flex-col items-center text-center"
+            >
+              <div className="w-full flex justify-center mb-8">
+                <img src={p.image} className="max-h-[340px] object-contain group-hover:scale-105 transition duration-500" />
               </div>
-            ))}
-          </div>
+
+              <h3 className="text-2xl font-semibold">{p.title}</h3>
+              <p className="text-sm text-gray-400 mt-2">{p.highlight}</p>
+              <span className="text-xs mt-2 text-gray-500">Case Study • {p.tag}</span>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* ALL PROJECTS */}
       <section className="mb-24">
         <h2 className="text-lg font-semibold mb-6">All Projects</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {projects.slice(2).map(p => (
             <div
               key={p.title}
               onClick={() => setSelectedProject(p)}
-              className="group cursor-pointer bg-gradient-to-br from-white/10 to-white/0 p-5 rounded-xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:border-white/30 hover:scale-[1.02] transition duration-300"
+              className="group cursor-pointer bg-gradient-to-br from-white/10 to-white/0 p-5 rounded-xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] hover:border-white/30 hover:scale-[1.02] transition duration-300 flex flex-col h-full"
             >
               <div className="h-[180px] flex items-center justify-center mb-4">
-              <img src={p.image} alt={p.title} className="max-h-full object-contain" />
+                <img src={p.image} className="max-h-full object-contain" />
               </div>
-              <h3 className="font-medium mb-1">{p.title}</h3>
-              <p className="text-xs text-gray-400 mb-2">{p.highlight}</p>
-              <span className="text-[10px] text-gray-500">{p.tag}</span>
+              <div className="mt-auto text-left">
+                <h3 className="font-medium mb-1">{p.title}</h3>
+                <p className="text-xs text-gray-400 mb-2">{p.highlight}</p>
+                <span className="text-[10px] text-gray-500">{p.tag}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -154,63 +160,11 @@ export default function Portfolio() {
 
       {/* Popup */}
       {selectedProject && (
-        <div
-          onClick={() => setSelectedProject(null)}
-          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-6 z-50"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="bg-white/10 border border-white/20 backdrop-blur-xl p-7 rounded-2xl max-w-md w-full relative shadow-[0_20px_80px_rgba(0,0,0,0.7)] text-center"
-          >
-            <button
-              onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl transition"
-            >
-              ×
-            </button>
-
-            <p className="text-xs text-gray-500 mb-2">Case Study • {selectedProject.tag}</p>
-
-            <h2 className="text-2xl font-semibold mb-3 tracking-tight">
-              {selectedProject.title}
-            </h2>
-
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm mx-auto">
-              {selectedProject.brief}
-            </p>
-
-            <div className="flex justify-center gap-4">
-              <a
-                href={selectedProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-white text-black rounded-lg text-sm font-medium hover:opacity-90 transition"
-              >
-                View Case Study
-              </a>
-
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="px-5 py-2.5 border border-white/30 rounded-lg text-sm hover:bg-white hover:text-black transition"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Contact */}
-      {contactOpen && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-6">
-          <div className="bg-white text-black p-6 rounded-xl w-full max-w-sm">
-            <h3 className="text-lg font-semibold mb-4">Get in touch</h3>
-            <div className="flex flex-col gap-3">
-              <a href="mailto:neiljjohn07@gmail.com" className="px-4 py-2 bg-black text-white rounded-md text-center">Email</a>
-              <a href="https://www.linkedin.com/in/neil-j-john/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-black rounded-md text-center">LinkedIn</a>
-              <a href="tel:+919048147551" className="px-4 py-2 border border-black rounded-md text-center">Call</a>
-            </div>
-            <button onClick={() => setContactOpen(false)} className="mt-4 text-sm text-gray-600 w-full">Close</button>
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-6 z-50">
+          <div className="bg-white/10 border border-white/20 backdrop-blur-xl p-7 rounded-2xl max-w-md w-full text-center">
+            <h2 className="text-2xl font-semibold mb-3">{selectedProject.title}</h2>
+            <p className="text-gray-400 text-sm mb-6">{selectedProject.brief}</p>
+            <a href={selectedProject.link} target="_blank" className="px-5 py-2.5 bg-white text-black rounded-lg text-sm">View Case Study</a>
           </div>
         </div>
       )}
